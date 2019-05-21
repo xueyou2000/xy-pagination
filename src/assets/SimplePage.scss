@@ -1,0 +1,48 @@
+$Pageination: "xy-page";
+
+.#{$Pageination}-simple-link {
+    padding: 0 10px;
+    height: 24px;
+    line-height: 24px;
+    vertical-align: top;
+    color: rgba(0, 0, 0, 0.65);
+    text-align: center;
+    transition: all 0.3s;
+    font-size: 12px;
+    cursor: pointer;
+    display: inline-block;
+
+    &:focus,
+    &:hover {
+        color: #1890ff;
+        border-color: #1890ff;
+    }
+
+    &.disabled {
+        color: rgba(0, 0, 0, 0.25);
+        cursor: not-allowed;
+    }
+}
+
+.#{$Pageination}-simple-jump {
+    display: inline-block;
+    height: 24px;
+    margin: 0 8px;
+
+    input {
+        width: 55px;
+        box-sizing: border-box;
+        height: 100%;
+        padding: 0 6px;
+        text-align: center;
+        background-color: #fff;
+        border: 1px solid #d9d9d9;
+        border-radius: 4px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+}
+
+.#{$Pageination}-slash {
+    margin: 0 10px;
+}

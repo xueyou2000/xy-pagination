@@ -1,7 +1,32 @@
 [
     {
+        "name": "Base",
+        "title": "基础分页",
+        "desc": "提供总条数， 分页器会自动分页。"
+    },
+    {
+        "name": "More",
+        "title": "更多分页",
+        "desc": "当页数大于7时， 会显示省略号， 点击可以往前5页或往后5页。"
+    },
+    {
+        "name": "PageSize",
+        "title": "更改条数",
+        "desc": "显示改变条数的下拉列表，控制每页多少条数据。"
+    },
+    {
+        "name": "Jump",
+        "title": "快速跳转",
+        "desc": "设置 showQuickJumper 属性显示跳转输入框， 可以上下箭头快速调整。"
+    },
+    {
         "name": "Simple",
-        "title": "简答例子",
-        "desc": "简答例子的一段描述。"
+        "title": "简洁",
+        "desc": "设置 simple 属性显示精简模式。"
+    },
+    {
+        "name": "Customize",
+        "title": "自定义",
+        "desc": "设置 itemRender 属性，自定义页码元素的渲染。"
     }
 ]

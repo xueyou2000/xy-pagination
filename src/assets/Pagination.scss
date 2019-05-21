@@ -1,0 +1,37 @@
+$Pagination: "xy-pagination";
+$Pager: "xy-page-pager";
+
+.#{$Pagination}-jump {
+    display: inline-block;
+    height: 32px;
+    margin: 0 8px;
+    vertical-align: middle;
+
+    input {
+        width: 55px;
+        box-sizing: border-box;
+        height: 100%;
+        padding: 0 6px;
+        text-align: center;
+        background-color: #fff;
+        border: 1px solid #d9d9d9;
+        border-radius: 4px;
+        outline: none;
+        transition: border-color 0.3s;
+        margin: 0 5px;
+    }
+}
+
+.#{$Pagination}-select {
+    width: 96px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.#{$Pagination} {
+    user-select: none;
+    .#{$Pager} {
+        display: inline-block;
+    }
+}

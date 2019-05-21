@@ -1,0 +1,134 @@
+$PageinationPrefix: "xy-page";
+$Pager: "#{$PageinationPrefix}-pager";
+
+.#{$Pager} {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    font-feature-settings: "tnum";
+}
+
+.#{$PageinationPrefix}-more,
+.#{$PageinationPrefix}-prev,
+.#{$PageinationPrefix}-next,
+.#{$PageinationPrefix}-item {
+    display: inline-block;
+    min-width: 32px;
+    height: 32px;
+    font-family: Arial;
+    text-align: center;
+    vertical-align: middle;
+    list-style: none;
+    border-radius: 4px;
+    outline: 0;
+    cursor: pointer;
+    user-select: none;
+}
+.#{$PageinationPrefix}-item {
+    margin-right: 8px;
+    line-height: 30px;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+
+    &.#{$PageinationPrefix}-active {
+        font-weight: 500;
+        background: #fff;
+        border-color: #1890ff;
+
+        a {
+            color: #1890ff;
+        }
+    }
+
+    &:focus,
+    &:hover {
+        border-color: #1890ff;
+        transition: all 0.3s;
+    }
+
+    a {
+        display: block;
+        padding: 0 6px;
+        color: rgba(0, 0, 0, 0.65);
+        transition: none;
+        text-decoration: none;
+    }
+}
+
+.#{$PageinationPrefix}-more,
+.#{$PageinationPrefix}-prev,
+.#{$PageinationPrefix}-next {
+    margin-right: 8px;
+    transition: all 0.3s;
+    line-height: 32px;
+
+    &:not(.#{$PageinationPrefix}-disabled):hover {
+        .#{$PageinationPrefix}-item-link {
+            color: #1890ff;
+            border-color: #1890ff;
+        }
+    }
+}
+.#{$PageinationPrefix}-item-link {
+    display: block;
+    height: 100%;
+    font-size: 12px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.3s;
+    color: rgba(0, 0, 0, 0.65);
+}
+.#{$PageinationPrefix}-disabled {
+    cursor: not-allowed;
+
+    a {
+        color: rgba(0, 0, 0, 0.25);
+        border-color: #d9d9d9;
+        cursor: not-allowed;
+    }
+}
+
+.#{$PageinationPrefix}-item-container {
+    position: relative;
+    color: #1890ff;
+
+    svg {
+        opacity: 0;
+    }
+}
+
+.#{$PageinationPrefix}-item-ellipsis {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    margin: auto;
+    color: rgba(0, 0, 0, 0.25);
+    letter-spacing: 2px;
+    text-align: center;
+    text-indent: 0.13em;
+    opacity: 1;
+}
+
+.#{$PageinationPrefix}-more:hover {
+    svg {
+        opacity: 1;
+    }
+    .#{$PageinationPrefix}-item-ellipsis {
+        opacity: 0;
+    }
+}
+
+.#{$PageinationPrefix}-next {
+    margin-right: 0;
+}

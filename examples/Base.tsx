@@ -4,7 +4,7 @@ import Pagination from "../src";
 export default function() {
     return (
         <div>
-            <Pagination total={50} simple={true} />
+            <Pagination total={51} />
         </div>
     );
 }

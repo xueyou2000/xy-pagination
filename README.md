@@ -10,7 +10,7 @@
 
 # xy-pagination
 
-基于`React Hooks` + `typescript`的基础组件
+分页组件
 
 ## 安装
 
@@ -21,26 +21,29 @@ yarn add xy-pagination
 
 ## 使用例子
 
-```ts
+```tsx
 import React from "react";
 import ReactDOM from "react-dom";
-import XyPagination from "xy-pagination";
-ReactDOM.render(<XyPagination />, container);
+import Pagination from "xy-pagination";
+ReactDOM.render(<Pagination total={50} />, container);
 ```
 
 ## API
 
-| 属性     | 说明                                                               | 类型           | 默认值    |
-| -------- | ------------------------------------------------------------------ | -------------- | --------- |
-| ghost    | 幽灵属性，使按钮背景透明                                           | boolean        | false     |
-| long     | 是否长按钮                                                         | boolean        | false     |
-| icon     | 设置按钮的图标类型                                                 | IconDefinition | -         |
-| loading  | 设置按钮载入状态                                                   | boolean        | `false`   |
-| disabled | 按钮失效状态                                                       | boolean        | `false`   |
-| shape    | 设置按钮形状，可选值为 `circle` 或者不设                           | string         | -         |
-| size     | 设置按钮大小，可选值为 `small` `large` 或者不设                    | string         | `default` |
-| type     | 设置按钮类型，可选值为 `primary` `dashed` `text` `danger` 或者不设 | string         | -         |
-| onClick  | `click` 事件的 handler                                             | function       | -         |
+| 属性             | 说明                     | 类型                                                                                       | 默认值               |
+| ---------------- | ------------------------ | ------------------------------------------------------------------------------------------ | -------------------- |
+| current          | 当前页数                 | number                                                                                     | 1                    |
+| defaultCurrent   | 默认当前页数             | number                                                                                     | 1                    |
+| onChange         | 页码改变事件             | (page: number, pageSize: number) => void                                                   | -                    |
+| pageSize         | 每页条数                 | number                                                                                     | 10                   |
+| defaultPageSize  | 默认每页条数             | number                                                                                     | 10                   |
+| onPageSizeChange | 每页条数改变             | (pageSize: number) => void                                                                 | -                    |
+| pageSizeOptions  | 每页可以显示多少条       | number[]                                                                                   | [10, 20, 30, 40, 50] |
+| total            | 总页数                   | number                                                                                     | 0                    |
+| showQuickJumper  | 显示快速跳转输入框       | boolean                                                                                    | false                |
+| showSizeChanger  | 显示更改每页条数下拉列表 | boolean                                                                                    | false                |
+| simple           | 是否精简模式             | boolean                                                                                    | false                |
+| itemRender       | 自定义渲染               | (current: number, page: PageItemType, originalElement: React.ReactNode) => React.ReactNode | -                    |
 
 ## 开发
 
