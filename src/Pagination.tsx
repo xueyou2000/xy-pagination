@@ -44,7 +44,8 @@ export function Pagination(props: PaginationProps) {
     }
 
     useEffect(() => {
-        if (current > getPageCount()) {
+        const pageCount = getPageCount();
+        if (current > getPageCount() && pageCount !== 0) {
             changeCurrent(getPageCount());
         }
     }, [pageSize]);
