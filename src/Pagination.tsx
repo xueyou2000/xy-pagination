@@ -18,7 +18,7 @@ export function Pagination(props: PaginationProps) {
     const pageProps: SimplePageProps = { current, pageCount: getPageCount(), onChange: changeCurrent };
 
     function changeCurrent(num: number) {
-        const pageNum = clamp(num, 0, total);
+        const pageNum = clamp(num, 1, total);
 
         if (!isControll) {
             setCurrent(pageNum);
