@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
-import { PaginationProps, SimplePageProps } from "./interface";
 import classNames from "classnames";
 import clamp from "lodash-es/clamp";
+import React, { useEffect } from "react";
 import { useControll } from "utils-hooks";
-import SimplePage from "./SimplePage";
-import Pager from "./Pager";
-import PageInput from "./PageInput";
-import { Select, Option } from "xy-select";
+import { Option, Select } from "xy-select";
 import "xy-select/assets/index.css";
+import { PaginationProps, SimplePageProps } from "./interface";
+import { getLocal } from "./local";
+import PageInput from "./PageInput";
+import Pager from "./Pager";
+import SimplePage from "./SimplePage";
 
 const DefaultPageSizeOptions = [10, 20, 30, 40, 50];
 
@@ -57,16 +58,17 @@ export function Pagination(props: PaginationProps) {
                 {showSizeChanger && (
                     <Select className={`${prefixCls}-select`} value={pageSize} onChange={changePageSize}>
                         {pageSizeOptions.map((x) => (
-                            <Option key={x} value={x} label={`${x} 条/页`}>
-                                {x} 条/页
+                            <Option key={x} value={x} label={`${x} ${getLocal().Pagination.pageNum}`}>
+                                {x} ${getLocal().Pagination.pageNum}
                             </Option>
                         ))}
                     </Select>
                 )}
                 {showQuickJumper && (
                     <span className={`${prefixCls}-jump`}>
-                        跳至
-                        <PageInput {...pageProps} />页
+                        {getLocal().Pagination.jump}
+                        <PageInput {...pageProps} />
+                        {getLocal().Pagination.page}
                     </span>
                 )}
             </React.Fragment>

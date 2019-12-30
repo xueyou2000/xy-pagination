@@ -4,6 +4,7 @@ import classNames from "classnames";
 import React from "react";
 import { PageItemType, PagerProps } from "./interface";
 import clamp from "lodash-es/clamp";
+import { getLocal } from "./local";
 
 // 大于等于多少页时显示省略符号
 const MaxEllipsisNumber: number = 7;
@@ -96,7 +97,7 @@ function Pager(props: PagerProps) {
     function prevMoreItem() {
         if (pageCount > MaxEllipsisNumber && current > MaxEllipsisNumber - EllipsisBoundDist) {
             return (
-                <li className={`${prefixCls}-more`} title="向前5页" onClick={() => jump(current - 5)}>
+                <li className={`${prefixCls}-more`} title={getLocal().Pagination.stridePrev} onClick={() => jump(current - 5)}>
                     <a>
                         <div className={`${prefixCls}-item-container`}>
                             <FontAwesomeIcon icon={faAngleDoubleLeft} />
@@ -113,7 +114,7 @@ function Pager(props: PagerProps) {
     function nextMoreItem() {
         if (pageCount > MaxEllipsisNumber && current < pageCount - EllipsisBoundDist) {
             return (
-                <li className={`${prefixCls}-more`} title="向后5页" onClick={() => jump(current + 5)}>
+                <li className={`${prefixCls}-more`} title={getLocal().Pagination.trideNext} onClick={() => jump(current + 5)}>
                     <a>
                         <div className={`${prefixCls}-item-container`}>
                             <FontAwesomeIcon icon={faAngleDoubleRight} />
@@ -129,13 +130,13 @@ function Pager(props: PagerProps) {
 
     return (
         <ul className={`${prefixCls}-pager`}>
-            <li className={classNames(`${prefixCls}-prev`, { [`${prefixCls}-disabled`]: current <= 1 })} onClick={() => jump(current - 1)} title="上一页">
+            <li className={classNames(`${prefixCls}-prev`, { [`${prefixCls}-disabled`]: current <= 1 })} onClick={() => jump(current - 1)} title={getLocal().Pagination.prev}>
                 {createPageItem(
                     null,
                     "prev",
                     <a className={`${prefixCls}-item-link`}>
                         <FontAwesomeIcon icon={faAngleLeft} />
-                    </a>
+                    </a>,
                 )}
             </li>
             {firstPageItem()}
@@ -149,13 +150,13 @@ function Pager(props: PagerProps) {
 
             {nextMoreItem()}
             {lastPageItem()}
-            <li className={classNames(`${prefixCls}-next`, { [`${prefixCls}-disabled`]: current >= pageCount })} onClick={() => jump(current + 1)} title="下一页">
+            <li className={classNames(`${prefixCls}-next`, { [`${prefixCls}-disabled`]: current >= pageCount })} onClick={() => jump(current + 1)} title={getLocal().Pagination.next}>
                 {createPageItem(
                     null,
                     "next",
                     <a className={`${prefixCls}-item-link`}>
                         <FontAwesomeIcon icon={faAngleRight} />
-                    </a>
+                    </a>,
                 )}
             </li>
         </ul>

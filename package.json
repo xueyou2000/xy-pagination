@@ -1,6 +1,6 @@
 {
     "name": "xy-pagination",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "基于 React Hooks 的分页组件",
     "types": "es/index.d.ts",
     "main": "es/index.js",
